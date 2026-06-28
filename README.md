@@ -12,7 +12,7 @@
 [![Deploy with Netlify](https://img.shields.io/badge/Deploy-Netlify-00c7b7?logo=netlify&logoColor=white)](https://www.netlify.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-fbd24e.svg)](./LICENSE)
 
-🌐 **Live:** [thechristsungupage.netlify.app](https://thechristsungupage.netlify.app) &nbsp;·&nbsp; 📦 **Repo:**[GitHub URL](https://github.com/callumtsungu200-coder/chris-tsungu-portfolio-)
+🌐 **Live:** [thechristsungupage.netlify.app](https://thechristsungupage.netlify.app) &nbsp;·&nbsp; 📦 **Repo:**[ GitHub URL](https://github.com/callumtsungu200-coder/chris-tsungu-portfolio-)
 
 </div>
 
