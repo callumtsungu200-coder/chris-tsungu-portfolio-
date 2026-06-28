@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thechristsungupage.netlify.app/sitemap.xml
