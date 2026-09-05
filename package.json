@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Personal portfolio of Chris Tsungu — Year 10 student, future financier, developer and athlete.",
+  "description": "Personal portfolio of Chris Tsungu — Year 11 student. Finance · FinTech · Technology · Software.",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

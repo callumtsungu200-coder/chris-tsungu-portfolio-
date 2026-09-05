@@ -5,11 +5,12 @@ import { ScrollProgress } from '@/components/layout/ScrollProgress'
 import { CursorGlow } from '@/components/layout/CursorGlow'
 import { Hero } from '@/components/sections/Hero'
 import { About } from '@/components/sections/About'
+import { Projects } from '@/components/sections/Projects'
+import { Experience } from '@/components/sections/Experience'
+import { Skills } from '@/components/sections/Skills'
 import { Education } from '@/components/sections/Education'
 import { Achievements } from '@/components/sections/Achievements'
 import { Sports } from '@/components/sections/Sports'
-import { Skills } from '@/components/sections/Skills'
-import { Projects } from '@/components/sections/Projects'
 import { Gallery } from '@/components/sections/Gallery'
 import { Timeline } from '@/components/sections/Timeline'
 import { Contact } from '@/components/sections/Contact'
@@ -25,11 +26,12 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <Projects />
+        <Experience />
+        <Skills />
         <Education />
         <Achievements />
         <Sports />
-        <Skills />
-        <Projects />
         <Gallery />
         <Timeline />
         <Contact />

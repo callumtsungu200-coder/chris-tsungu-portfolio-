@@ -1,7 +1,7 @@
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { GlassCard } from '@/components/ui/GlassCard'
 import { Reveal } from '@/components/ui/Reveal'
-import { grades, profile } from '@/data/content'
+import { grades, gradesMeta, profile } from '@/data/content'
 import { motion } from 'framer-motion'
 
 function GradePill({ value }: { value: string }) {
@@ -25,9 +25,9 @@ export function Education() {
     <section id="education" className="relative section-padding">
       <div className="container">
         <SectionHeading
-          eyebrow="02 — Education"
-          title="Top set across every subject."
-          description={`Studying for ten GCSEs at ${profile.school} — including Triple Science, Higher Mathematics, Computer Science and Spanish.`}
+          eyebrow="05 — Education"
+          title="Building strong GCSE foundations."
+          description={`Studying ten GCSEs at ${profile.school}. Sixth-form plan: Mathematics, Economics and Computer Science.`}
         />
 
         <div className="grid gap-6 lg:grid-cols-[1fr,1.4fr]">
@@ -54,12 +54,12 @@ export function Education() {
                   <span className="font-medium text-ink-100">{profile.yearGroup}</span>
                 </div>
                 <div className="flex items-center justify-between rounded-xl bg-white/[0.02] px-3 py-2.5 ring-1 ring-inset ring-white/5">
-                  <span className="text-ink-300">Pathway</span>
-                  <span className="font-medium text-ink-100">GCSE · 10 subjects</span>
+                  <span className="text-ink-300">GCSEs expected</span>
+                  <span className="font-medium text-ink-100">{profile.gcseYear}</span>
                 </div>
                 <div className="flex items-center justify-between rounded-xl bg-white/[0.02] px-3 py-2.5 ring-1 ring-inset ring-white/5">
-                  <span className="text-ink-300">Sets</span>
-                  <span className="font-medium text-gold-200">Top set, every subject</span>
+                  <span className="text-ink-300">Pathway</span>
+                  <span className="font-medium text-ink-100">GCSE · 10 subjects</span>
                 </div>
                 <div className="flex items-center justify-between rounded-xl bg-white/[0.02] px-3 py-2.5 ring-1 ring-inset ring-white/5">
                   <span className="text-ink-300">Role</span>
@@ -69,10 +69,11 @@ export function Education() {
 
               <div className="mt-6 rounded-2xl border border-gold-300/20 bg-gold-400/[0.04] p-4">
                 <p className="font-mono text-[11px] uppercase tracking-widest text-gold-300/80">
-                  Strongest areas
+                  Sixth form plan
                 </p>
                 <p className="mt-2 text-sm text-ink-200 text-pretty">
-                  Chemistry, Physics, Biology, Mathematics, English Language &amp; Literature, Spanish.
+                  Mathematics, Economics and Computer Science — the three subjects most directly
+                  aligned with a career in Finance and FinTech.
                 </p>
               </div>
             </GlassCard>
@@ -83,11 +84,14 @@ export function Education() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="font-mono text-[11px] uppercase tracking-widest text-gold-300/80">
-                    GCSE — projected grades
+                    {gradesMeta.label}
                   </p>
                   <h3 className="mt-1 font-display text-xl font-semibold text-ink-100">
-                    Live academic snapshot
+                    Actual grades achieved
                   </h3>
+                </div>
+                <div className="rounded-full bg-gold-400/15 px-3 py-1 text-xs font-medium text-gold-200 ring-1 ring-gold-300/30">
+                  Top 8 · {gradesMeta.topEightTotal} points
                 </div>
               </div>
 
@@ -96,9 +100,7 @@ export function Education() {
                   <thead className="bg-white/[0.03] text-[11px] uppercase tracking-widest text-ink-400">
                     <tr>
                       <th className="px-4 py-3 font-medium">Subject</th>
-                      <th className="px-4 py-3 font-medium text-center">Target</th>
-                      <th className="px-4 py-3 font-medium text-center">Projected</th>
-                      <th className="px-4 py-3 font-medium text-right">Effort</th>
+                      <th className="px-4 py-3 font-medium text-right">Grade</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-white/5">
@@ -112,22 +114,16 @@ export function Education() {
                         className="hover:bg-white/[0.02]"
                       >
                         <td className="px-4 py-3 font-medium text-ink-100">{g.subject}</td>
-                        <td className="px-4 py-3 text-center">
-                          <GradePill value={g.target} />
+                        <td className="px-4 py-3 text-right">
+                          <GradePill value={g.grade} />
                         </td>
-                        <td className="px-4 py-3 text-center">
-                          <GradePill value={g.projected} />
-                        </td>
-                        <td className="px-4 py-3 text-right text-ink-300">{g.effort ?? '—'}</td>
                       </motion.tr>
                     ))}
                   </tbody>
                 </table>
               </div>
 
-              <p className="mt-3 text-xs text-ink-500">
-                Projected grades from school assessment. Targets set by The Stanway School.
-              </p>
+              <p className="mt-3 text-xs text-ink-500">{gradesMeta.note}</p>
             </GlassCard>
           </Reveal>
         </div>

@@ -21,7 +21,7 @@ export function Timeline() {
     <section id="timeline" className="relative section-padding">
       <div className="container">
         <SectionHeading
-          eyebrow="08 — Timeline"
+          eyebrow="09 — Timeline"
           title="One step at a time, every year."
           description="A short timeline of the moments that have built the story so far."
         />

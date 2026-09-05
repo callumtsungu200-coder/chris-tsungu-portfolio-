@@ -10,9 +10,9 @@ export function Skills() {
     <section id="skills" className="relative section-padding">
       <div className="container">
         <SectionHeading
-          eyebrow="05 — Skills"
+          eyebrow="04 — Skills"
           title="A toolkit, growing every term."
-          description="Confident with code, comfortable with creative tools, strong across academic disciplines."
+          description="Programming, web frameworks, AI experimentation and finance analysis — a mix that reflects both my technical curiosity and my Finance / FinTech direction."
         />
 
         <Stagger className="grid gap-5 lg:grid-cols-3">

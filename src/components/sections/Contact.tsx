@@ -11,9 +11,9 @@ export function Contact() {
     <section id="contact" className="relative section-padding">
       <div className="container">
         <SectionHeading
-          eyebrow="09 — Contact"
+          eyebrow="10 — Contact"
           title="Open to opportunities."
-          description="Trials, work-experience days, mentorship, finance insight days — I'd love to hear from you."
+          description="Finance & FinTech insight days, work experience, mentorship, technology programmes, football trials — I'd love to hear from you."
           align="center"
         />
 
@@ -31,11 +31,11 @@ export function Contact() {
             <div className="relative grid gap-8 md:grid-cols-2 md:gap-12">
               <div>
                 <h3 className="font-display text-2xl font-semibold text-ink-100 md:text-3xl text-balance">
-                  Let&apos;s talk — about academics, finance or football.
+                  Let&apos;s talk — Finance, FinTech, technology or football.
                 </h3>
                 <p className="mt-3 text-sm text-ink-300 text-pretty">
-                  Email is the quickest way to reach me. For trials and football opportunities,
-                  contact details are at the bottom of this card.
+                  Email is the quickest way to reach me. LinkedIn works too. All contact details are
+                  listed on this card.
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">

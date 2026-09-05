@@ -20,9 +20,9 @@ export function Achievements() {
     <section id="achievements" className="relative section-padding">
       <div className="container">
         <SectionHeading
-          eyebrow="03 — Achievements"
-          title="A record of consistent excellence."
-          description="Recognition across the classroom, the leadership team and the pitch."
+          eyebrow="06 — Achievements"
+          title="Awards, leadership and recognition."
+          description="A record built across the classroom, the Prefect team and beyond."
         />
 
         <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

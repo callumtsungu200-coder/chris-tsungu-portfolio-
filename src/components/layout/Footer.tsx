@@ -18,8 +18,8 @@ export function Footer() {
               <span>{profile.name}</span>
             </a>
             <p className="mt-3 max-w-sm text-sm text-ink-400">
-              Student at The Stanway School. Aiming for a career in finance and investment banking,
-              with discipline carried from sport and the classroom.
+              Year 11 student at The Stanway School. Building towards a career in Finance & FinTech
+              — through real projects, professional experience and competitive football.
             </p>
           </div>
 

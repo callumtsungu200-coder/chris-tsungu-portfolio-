@@ -2,20 +2,20 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import { GlassCard } from '@/components/ui/GlassCard'
 import { Reveal, Stagger, staggerItem } from '@/components/ui/Reveal'
 import { motion } from 'framer-motion'
-import { profile, strengths, languages } from '@/data/content'
+import { profile, strengths, languages, interests } from '@/data/content'
 import {
   HiAcademicCap,
   HiOutlineLightningBolt,
-  HiOutlineUserGroup,
   HiOutlineChip,
+  HiOutlineCurrencyPound,
 } from 'react-icons/hi'
 import { IconType } from 'react-icons'
 
 const icons: Record<string, IconType> = {
-  Leadership: HiOutlineUserGroup,
-  Discipline: HiAcademicCap,
-  Communication: HiOutlineChip,
-  'Fast learner': HiOutlineLightningBolt,
+  Ambitious: HiOutlineLightningBolt,
+  Analytical: HiOutlineChip,
+  Entrepreneurial: HiOutlineCurrencyPound,
+  Independent: HiAcademicCap,
 }
 
 export function About() {
@@ -24,9 +24,28 @@ export function About() {
       <div className="container">
         <SectionHeading
           eyebrow="01 — About me"
-          title="Academics first. Discipline always. Eyes on the markets."
+          title="Curious about how technology is reshaping finance."
           description={profile.longBio}
         />
+
+        {/* Interests strip */}
+        <Reveal direction="up" className="mb-10">
+          <div className="rounded-3xl border border-white/5 bg-white/[0.02] p-5 md:p-6">
+            <p className="font-mono text-[11px] uppercase tracking-widest text-gold-300/80">
+              What I&apos;m interested in
+            </p>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {interests.map((i) => (
+                <li
+                  key={i.label}
+                  className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-sm text-ink-200"
+                >
+                  {i.label}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
 
         <div className="grid gap-10 lg:grid-cols-[1.05fr,0.95fr] lg:gap-14">
           <Stagger className="grid gap-4 sm:grid-cols-2">
@@ -68,9 +87,9 @@ export function About() {
                   The plan
                 </p>
                 <p className="mt-2 text-sm text-ink-200 text-pretty">
-                  Top GCSE grades → strong A-levels in Maths, Economics and a science → target a
-                  Russell Group university → internships in equity research / M&amp;A → analyst
-                  programme at a global investment bank.
+                  Strong GCSEs in 2027 → Maths, Economics and Computer Science at sixth form →
+                  target a Russell Group university → build depth in FinTech, quantitative and
+                  financial analysis → work towards a career in Finance and financial technology.
                 </p>
               </div>
             </GlassCard>

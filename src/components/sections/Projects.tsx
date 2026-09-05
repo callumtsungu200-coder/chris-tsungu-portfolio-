@@ -10,12 +10,14 @@ const statusTone = {
   live: 'live',
   'in-progress': 'progress',
   ongoing: 'ongoing',
+  prototype: 'prototype',
 } as const
 
 const statusLabel = {
   live: 'Live',
   'in-progress': 'In progress',
   ongoing: 'Ongoing',
+  prototype: 'Prototype',
 } as const
 
 export function Projects() {
@@ -23,9 +25,9 @@ export function Projects() {
     <section id="projects" className="relative section-padding">
       <div className="container">
         <SectionHeading
-          eyebrow="06 — Projects"
+          eyebrow="02 — Projects"
           title="Built, shipped, and still building."
-          description="A growing list of things I have designed, coded and put out into the world."
+          description="Real things I have designed, coded and put out into the world — spanning EdTech, Web, AI hardware, FinTech-adjacent analysis and honest experiments."
         />
 
         <Stagger className="grid gap-6 md:grid-cols-2">
@@ -42,6 +44,20 @@ export function Projects() {
                 </div>
                 <h3 className="mt-5 font-display text-xl font-semibold text-ink-100">{p.title}</h3>
                 <p className="mt-2 text-sm text-ink-300 text-pretty">{p.blurb}</p>
+
+                {p.bullets && p.bullets.length > 0 && (
+                  <ul className="mt-4 space-y-1.5">
+                    {p.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2 text-sm text-ink-300">
+                        <span
+                          aria-hidden
+                          className="mt-2 inline-block h-1 w-1 flex-shrink-0 rounded-full bg-gold-300"
+                        />
+                        <span className="text-pretty">{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
                 <div className="mt-5 flex flex-wrap gap-1.5">
                   {p.tags.map((t) => (

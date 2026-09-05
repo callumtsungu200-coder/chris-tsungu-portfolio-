@@ -76,9 +76,9 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.28 }}
               className="mt-7 max-w-xl text-base text-ink-300 md:text-lg text-pretty"
             >
-              {profile.heroQuote} Year 10 at {profile.school}. Building a path to{' '}
-              <span className="text-gold-200">investment banking</span> through academics,
-              leadership and elite-level sport.
+              {profile.heroQuote} {profile.yearGroup} at {profile.school}. Building towards a career in{' '}
+              <span className="text-gold-200">Finance & FinTech</span> through real projects,
+              professional experience, leadership and competitive football.
             </motion.p>
 
             <motion.div
@@ -117,7 +117,7 @@ export function Hero() {
             <div className="relative aspect-video overflow-hidden rounded-3xl ring-1 ring-white/10 shadow-glass">
               <img
                 src="/images/hero-portrait.png"
-                alt="Chris Tsungu — Left Wing, Ipswich Futures U15"
+                alt="Chris Tsungu"
                 className="absolute inset-0 h-full w-full object-cover"
                 loading="eager"
                 fetchPriority="high"
@@ -132,10 +132,10 @@ export function Hero() {
               className="absolute -left-3 -top-3 hidden rounded-2xl glass p-3 shadow-glass sm:block"
             >
               <div className="font-mono text-[10px] uppercase tracking-widest text-ink-400">
-                Aspiration
+                Focus
               </div>
               <div className="mt-1 font-display text-sm font-medium text-ink-100">
-                Investment Banking
+                Finance · FinTech
               </div>
             </motion.div>
             <motion.div

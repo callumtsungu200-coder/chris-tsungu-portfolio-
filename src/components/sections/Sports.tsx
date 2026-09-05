@@ -1,39 +1,29 @@
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { GlassCard } from '@/components/ui/GlassCard'
 import { Reveal, Stagger, staggerItem } from '@/components/ui/Reveal'
-import { StatCard } from '@/components/ui/StatCard'
 import { motion } from 'framer-motion'
-import { sportsHighlights } from '@/data/content'
+import { sportsHighlights, footballCharacter } from '@/data/content'
 
-const fixtures = [
-  'Brentford',
-  'Crystal Palace',
-  'Norwich',
-  'Wolves',
-  'Charlton',
-  'Sheffield Wednesday',
-  'Colchester',
-  'Southend',
-]
+const clubs = ['Witham Town U16', 'Lewisham Borough U16']
 
 export function Sports() {
   return (
     <section id="sports" className="relative section-padding">
       <div className="container">
         <SectionHeading
-          eyebrow="04 — Sports & Leadership"
+          eyebrow="07 — Football"
           title="Discipline, learned at full speed."
-          description="Competitive football and athletics every week — the same drive that powers the academics."
+          description="Competitive football at U16 level — the source of a lot of the character I bring to school and work."
         />
 
         <div className="grid gap-6 lg:grid-cols-[1fr,1fr] lg:gap-10">
-          {/* Left: image card */}
+          {/* Left: image card + position */}
           <Reveal direction="left">
             <div className="space-y-4">
               <div className="relative aspect-video overflow-hidden rounded-3xl ring-1 ring-white/10 shadow-glass">
                 <img
                   src="/images/hero-portrait-alt.png"
-                  alt="Chris Tsungu in match action"
+                  alt="Chris Tsungu in football action"
                   className="absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
                 />
@@ -44,23 +34,26 @@ export function Sports() {
                   <p className="font-mono text-[10px] uppercase tracking-widest text-gold-200/90">
                     Position
                   </p>
-                  <p className="mt-1 font-display text-xl font-semibold text-ink-100">Left Wing</p>
+                  <p className="mt-1 font-display text-xl font-semibold text-ink-100">
+                    Left Wing · Striker
+                  </p>
                 </div>
-                <div className="rounded-full bg-gold-400/15 px-3 py-1 text-xs font-medium text-gold-200 ring-1 ring-gold-300/30">
-                  Ipswich Futures U15
+                <div className="flex flex-wrap justify-end gap-2">
+                  {clubs.map((c) => (
+                    <span
+                      key={c}
+                      className="rounded-full bg-gold-400/15 px-3 py-1 text-xs font-medium text-gold-200 ring-1 ring-gold-300/30"
+                    >
+                      {c}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
           </Reveal>
 
-          {/* Right: stats + highlights */}
+          {/* Right: highlights */}
           <div className="space-y-6">
-            <div className="grid grid-cols-3 gap-3">
-              <StatCard label="Goals 25/26" value="20+" />
-              <StatCard label="Assists 25/26" value="10+" />
-              <StatCard label="Seasons" value="10" sub="competitive" />
-            </div>
-
             <Stagger className="space-y-3">
               {sportsHighlights.map((h) => (
                 <motion.div key={h.title} variants={staggerItem}>
@@ -79,28 +72,26 @@ export function Sports() {
           </div>
         </div>
 
+        {/* Character developed */}
         <Reveal className="mt-10" direction="up">
           <GlassCard hover={false}>
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="font-mono text-[11px] uppercase tracking-widest text-gold-300/80">
-                  Faced academy sides from
+                  Character built through the game
                 </p>
                 <h4 className="mt-2 font-display text-xl font-semibold text-ink-100">
-                  Premier League and Championship pathways
+                  The same traits I bring to academics and work.
                 </h4>
-              </div>
-              <div className="hidden rounded-full bg-emerald-400/10 px-3 py-1 text-xs text-emerald-300 ring-1 ring-emerald-400/30 sm:inline-flex">
-                Match-tested
               </div>
             </div>
             <ul className="mt-5 flex flex-wrap gap-2">
-              {fixtures.map((f) => (
+              {footballCharacter.map((t) => (
                 <li
-                  key={f}
+                  key={t}
                   className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-sm text-ink-200"
                 >
-                  {f}
+                  {t}
                 </li>
               ))}
             </ul>

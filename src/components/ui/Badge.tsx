@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react'
 import { cn } from '@/lib/cn'
 
-type Tone = 'gold' | 'mute' | 'live' | 'progress' | 'ongoing'
+type Tone = 'gold' | 'mute' | 'live' | 'progress' | 'ongoing' | 'prototype'
 
 const tones: Record<Tone, string> = {
   gold: 'bg-gold-400/10 text-gold-200 ring-gold-300/30',
@@ -9,6 +9,7 @@ const tones: Record<Tone, string> = {
   live: 'bg-emerald-400/10 text-emerald-300 ring-emerald-400/30',
   progress: 'bg-sky-400/10 text-sky-300 ring-sky-400/30',
   ongoing: 'bg-violet-400/10 text-violet-300 ring-violet-400/30',
+  prototype: 'bg-rose-400/10 text-rose-300 ring-rose-400/30',
 }
 
 export function Badge({

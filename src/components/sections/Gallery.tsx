@@ -9,9 +9,9 @@ export function Gallery() {
     <section id="gallery" className="relative section-padding">
       <div className="container">
         <SectionHeading
-          eyebrow="07 — Gallery & Reel"
-          title="On the pitch, in the books."
-          description="A few moments from match day and training."
+          eyebrow="08 — Gallery & Reel"
+          title="Moments from the game."
+          description="A few shots and a short highlight reel from competitive football."
         />
 
         {/* Gallery grid — uniform landscape cards so banner art is never cropped */}
@@ -51,10 +51,10 @@ export function Gallery() {
                   Highlight reel
                 </p>
                 <h3 className="mt-3 font-display text-2xl font-semibold text-ink-100 md:text-3xl">
-                  2025/26 — best moments from the wing.
+                  Moments from the wing.
                 </h3>
                 <p className="mt-3 text-sm text-ink-300 text-pretty">
-                  Goals, assists and key plays from a standout season at Ipswich Futures.
+                  A short reel from competitive fixtures.
                 </p>
                 {!reelEmbedUrl && (
                   <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-gold-300/30 bg-gold-400/10 px-3 py-1 text-xs text-gold-200">
