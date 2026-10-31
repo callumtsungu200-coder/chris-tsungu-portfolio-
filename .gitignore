@@ -13,3 +13,6 @@ source-documents/
 
 # Local editor/agent config
 .claude/
+
+# TypeScript incremental build caches
+*.tsbuildinfo

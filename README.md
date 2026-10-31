@@ -2,11 +2,15 @@
 
 Personal portfolio of Chris Tsungu, Year 11 student at The Stanway School, Essex, building towards a career in investment banking or quantitative finance.
 
-**Live:** https://chris-c-tsungu.netlify.app · **Repo:** https://github.com/callumtsungu200-coder/chris-tsungu-portfolio-
+[![CI](https://github.com/callumtsungu200-coder/chris-tsungu-portfolio-/actions/workflows/ci.yml/badge.svg)](https://github.com/callumtsungu200-coder/chris-tsungu-portfolio-/actions/workflows/ci.yml)
+
+**Live:** https://chris-c-tsungu.netlify.app
+
+![Portfolio home page](docs/home.jpg)
 
 Built with React 18, TypeScript, Vite, Tailwind CSS, Framer Motion and React Router. Hosted on Netlify (forms included).
 
-**Design:** editorial light theme, paper background, near-black text, a single deep-navy accent, Fraunces serif headings, hairline rules and flat bordered cards. Motion is deliberate and specific: masked word reveals, clip-path wipes, a page-turn curtain between routes, count-up figures, a timeline rail that draws with scroll and a ticker. Everything respects `prefers-reduced-motion`. Colour tokens live in `tailwind.config.ts` (the `ink`/`gold` scale names are kept from v1 but remapped).
+**Design:** warm cream background, olive-charcoal text, coral and deep-green accents, Outfit headings with Inter body text, and large rounded cards. Motion is deliberate and specific: masked word reveals, clip-path wipes, a sheet that wipes between routes, count-up figures, a timeline rail that draws with scroll and a ticker. Everything respects `prefers-reduced-motion`. Colour tokens live in `tailwind.config.ts` (the `ink`/`gold` scale names are kept from v1 but remapped).
 
 ## Pages
 
@@ -18,7 +22,7 @@ Built with React 18, TypeScript, Vite, Tailwind CSS, Framer Motion and React Rou
 | `/finance` | Finance interests, independent market research and portfolio record, next steps |
 | `/skills` | Skills by category with honest levels and where each was applied; filter + search |
 | `/experience` | Experience timeline (typed: commercial / placement / programme / insight / conversation), certificates, professional development |
-| `/education` | GCSE subjects + boards, Year 10 mocks and predicted grades, intended A-levels, competitions |
+| `/education` | GCSE subjects and boards, Pupil Estimated Grades from the school report, intended A-levels, competitions |
 | `/achievements` | Leadership, volunteering, competitions, recognition, filterable |
 | `/football` | Clubs, trials, transferable skills, photos and highlight reel |
 | `/now` | Status board: planning / in development / testing / completed / on hold |
@@ -36,7 +40,7 @@ Everything on the site is driven from typed data files. Components rarely need t
 | `skills.ts` | Skills, levels (`comfortable` / `used-in-projects` / `learning`) and where each was used |
 | `finance.ts` | Finance interests, research approach, portfolio record (see note below), next steps |
 | `experience.ts` | Experience entries (with `kind`), certificates (add `image` / `verifyUrl`), professional development |
-| `education.ts` | Subjects/boards, mock and predicted grades, intended A-levels, competitions |
+| `education.ts` | Subjects and boards, predicted grades (PEG), intended A-levels, competitions |
 | `achievements.ts` | Achievements with involvement, responsibilities and skills |
 | `football.ts` | Clubs, competitive experience, transferable skills, gallery, reel URL |
 | `now.ts` | The "currently working on" board, update `nowLastUpdated` when you change it |
@@ -67,6 +71,7 @@ Requires Node 20+.
 ```bash
 npm install
 npm run dev        # http://localhost:5173
+npm run type-check # TypeScript only
 npm run build      # type-check + production build → dist/
 npm run preview
 ```
