@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thechristsungupage.netlify.app/sitemap.xml
+Sitemap: https://chris-c-tsungu.netlify.app/sitemap.xml

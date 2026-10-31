@@ -5,7 +5,7 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# SPA fallback (no router currently, but kept for safety if added later).
+# SPA fallback for React Router.
 [[redirects]]
   from = "/*"
   to = "/index.html"
@@ -32,3 +32,4 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'"

@@ -1,5 +1,12 @@
 import type { Config } from 'tailwindcss'
 
+/**
+ * Warm, soft theme: cream page, olive-charcoal text, coral accent, sage
+ * secondary, large rounded cards. Scale names are kept from earlier versions
+ * so existing class names still resolve:
+ *   ink-950 = page background (cream)   ink-100 = primary text
+ *   gold-*  = primary accent (coral)     rust    = secondary accent (sage)
+ */
 const config: Config = {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
@@ -11,73 +18,60 @@ const config: Config = {
     extend: {
       colors: {
         ink: {
-          950: '#050609',
-          900: '#0a0c12',
-          800: '#101218',
-          700: '#191c25',
-          600: '#262a36',
-          500: '#3a3f50',
-          400: '#6c7387',
-          300: '#9aa1b4',
-          200: '#c8ccd6',
-          100: '#e6e8ee',
+          950: '#efebe5',
+          900: '#e7e2da',
+          800: '#ddd7cc',
+          700: '#cfc8bb',
+          600: '#b5ae9f',
+          500: '#857f72',
+          400: '#5f5b50',
+          300: '#3c4235',
+          200: '#2f3429',
+          100: '#1f2219',
         },
         gold: {
-          50:  '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde58a',
-          300: '#fbd24e',
-          400: '#fac315',
-          500: '#eaa90b',
-          600: '#ca8004',
-          700: '#a45a07',
-          800: '#86460e',
-          900: '#723a10',
+          50: '#e9f0ea',
+          100: '#cfdfd2',
+          200: '#2f5d3a',
+          300: '#2f5d3a',
+          400: '#2f5d3a',
+          500: '#264c2f',
+          600: '#1e3d26',
+          700: '#172f1d',
+          800: '#112316',
+          900: '#0b170e',
         },
-        accent: {
-          DEFAULT: '#fbd24e',
-          soft: '#fde58a',
-          deep: '#a45a07',
-        },
+        accent: { DEFAULT: '#2f5d3a', soft: '#e9f0ea', deep: '#1e3d26' },
+        rust: { DEFAULT: '#b8863b', soft: '#f1e6cf' },
+        danger: { DEFAULT: '#c6402f', soft: '#fbe3df' },
+        line: { DEFAULT: '#d7d1c6', strong: '#1f2219' },
+        paper: { 50: '#f7f4ef', 100: '#efebe5', 200: '#e7e2da' },
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['"Space Grotesk"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['Outfit', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
-      letterSpacing: {
-        tightest: '-0.04em',
-      },
-      backgroundImage: {
-        'grid-fade':
-          'linear-gradient(to bottom, transparent 0%, #050609 80%), linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)',
-        'radial-spot':
-          'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(251,210,78,0.18), transparent 70%)',
-        'gold-shine':
-          'linear-gradient(120deg, #fef3c7 0%, #fbd24e 30%, #eaa90b 55%, #fbd24e 80%, #fef3c7 100%)',
-      },
+      letterSpacing: { tightest: '-0.04em' },
+      borderRadius: { '4xl': '2rem' },
       boxShadow: {
-        glass: '0 1px 0 0 rgba(255,255,255,0.06) inset, 0 12px 40px -12px rgba(0,0,0,0.6)',
-        gold: '0 0 0 1px rgba(251,210,78,0.35), 0 8px 28px -8px rgba(251,210,78,0.35)',
+        glass: '0 1px 2px rgba(31,34,25,0.04), 0 12px 40px -24px rgba(31,34,25,0.25)',
+        paper: '0 20px 60px -30px rgba(31,34,25,0.35)',
+        'paper-sm': '0 8px 24px -16px rgba(31,34,25,0.3)',
+        gold: '0 0 0 1px #2f5d3a',
       },
       animation: {
-        'spin-slow': 'spin 18s linear infinite',
-        'float': 'float 9s ease-in-out infinite',
-        'shimmer': 'shimmer 2.4s linear infinite',
-        'pulse-glow': 'pulseGlow 3.5s ease-in-out infinite',
+        marquee: 'marquee 38s linear infinite',
+        breathe: 'breathe 6s ease-in-out infinite',
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-14px)' },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
-        shimmer: {
-          '0%': { backgroundPosition: '-200% 0' },
-          '100%': { backgroundPosition: '200% 0' },
-        },
-        pulseGlow: {
-          '0%, 100%': { opacity: '0.4' },
-          '50%': { opacity: '0.9' },
+        breathe: {
+          '0%, 100%': { transform: 'scale(1)', opacity: '0.55' },
+          '50%': { transform: 'scale(1.06)', opacity: '0.9' },
         },
       },
     },

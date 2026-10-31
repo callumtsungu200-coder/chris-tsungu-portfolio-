@@ -1,79 +1,47 @@
-import { profile, navItems } from '@/data/content'
+import { Link } from 'react-router-dom'
+import { profile, primaryNav, secondaryNav } from '@/data/content'
 import { FaLinkedin, FaGithub } from 'react-icons/fa'
 import { HiOutlineMail } from 'react-icons/hi'
 
+/** Footer: a large rounded dark card. */
 export function Footer() {
   return (
-    <footer className="relative border-t border-white/5 bg-ink-950/80">
-      <div className="container py-12">
-        <div className="grid gap-10 md:grid-cols-3">
-          <div>
-            <a href="#top" className="inline-flex items-center gap-2 text-lg font-semibold">
-              <span
-                className="grid h-9 w-9 place-items-center rounded-lg bg-gold-400 font-display text-ink-950"
-                aria-hidden
-              >
-                {profile.initials}
+    <footer className="relative">
+      <div className="container pb-6">
+        <div className="rounded-[2rem] bg-ink-100 p-8 text-paper-50 md:p-12">
+          <div className="grid gap-10 md:grid-cols-4">
+            <div className="md:col-span-2">
+              <span aria-hidden className="grid h-10 w-10 place-items-center rounded-full bg-paper-50">
+                <span className="block h-3 w-3 rounded-full bg-gold-400" />
               </span>
-              <span>{profile.name}</span>
-            </a>
-            <p className="mt-3 max-w-sm text-sm text-ink-400">
-              Year 11 student at The Stanway School. Building towards a career in Finance & FinTech
-              — through real projects, professional experience and competitive football.
-            </p>
+              <p className="mt-6 font-display text-3xl font-medium tracking-tight">{profile.name}</p>
+              <p className="mt-2 max-w-sm text-sm text-paper-50/60">{profile.yearGroup} · {profile.school} · {profile.location}. Building towards a career in finance through projects, research and real experience.</p>
+            </div>
+            <nav aria-label="Footer primary">
+              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-paper-50/50">Pages</p>
+              <ul className="mt-3 space-y-2">
+                {[{ to: '/', label: 'Home' }, ...primaryNav, { to: '/contact', label: 'Contact' }].map((n) => (
+                  <li key={n.to}><Link className="text-paper-50/85 transition-colors hover:text-gold-200" to={n.to}>{n.label}</Link></li>
+                ))}
+              </ul>
+            </nav>
+            <nav aria-label="Footer secondary">
+              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-paper-50/50">More</p>
+              <ul className="mt-3 space-y-2">
+                {secondaryNav.map((n) => (
+                  <li key={n.to}><Link className="text-paper-50/85 transition-colors hover:text-gold-200" to={n.to}>{n.label}</Link></li>
+                ))}
+              </ul>
+            </nav>
           </div>
-
-          <div>
-            <h4 className="text-xs uppercase tracking-widest text-ink-400">Sections</h4>
-            <ul className="mt-3 grid grid-cols-2 gap-2 text-sm">
-              {navItems.map((n) => (
-                <li key={n.id}>
-                  <a className="text-ink-200 transition-colors hover:text-gold-200" href={`#${n.id}`}>
-                    {n.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-paper-50/10 pt-6 text-sm text-paper-50/60 sm:flex-row sm:items-center">
+            <div className="flex flex-wrap gap-2">
+              <a className="inline-flex items-center gap-2 rounded-full bg-paper-50/10 px-3 py-1.5 hover:bg-paper-50/20" href={`mailto:${profile.contact.email}`}><HiOutlineMail aria-hidden /> {profile.contact.email}</a>
+              <a className="inline-flex items-center gap-2 rounded-full bg-paper-50/10 px-3 py-1.5 hover:bg-paper-50/20" href={profile.contact.linkedin} target="_blank" rel="noreferrer noopener"><FaLinkedin aria-hidden /> LinkedIn</a>
+              <a className="inline-flex items-center gap-2 rounded-full bg-paper-50/10 px-3 py-1.5 hover:bg-paper-50/20" href={profile.contact.github} target="_blank" rel="noreferrer noopener"><FaGithub aria-hidden /> GitHub</a>
+            </div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em]">© {new Date().getFullYear()} {profile.name}</p>
           </div>
-
-          <div>
-            <h4 className="text-xs uppercase tracking-widest text-ink-400">Connect</h4>
-            <ul className="mt-3 space-y-2 text-sm">
-              <li>
-                <a
-                  className="inline-flex items-center gap-2 text-ink-200 transition-colors hover:text-gold-200"
-                  href={`mailto:${profile.contact.email}`}
-                >
-                  <HiOutlineMail /> {profile.contact.email}
-                </a>
-              </li>
-              <li>
-                <a
-                  className="inline-flex items-center gap-2 text-ink-200 transition-colors hover:text-gold-200"
-                  href={profile.contact.linkedin}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <FaLinkedin /> {profile.contact.linkedinLabel}
-                </a>
-              </li>
-              <li>
-                <a
-                  className="inline-flex items-center gap-2 text-ink-200 transition-colors hover:text-gold-200"
-                  href={profile.contact.github}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <FaGithub /> {profile.contact.githubLabel}
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/5 pt-6 text-xs text-ink-400 sm:flex-row">
-          <p>© {new Date().getFullYear()} {profile.name}. All rights reserved.</p>
-          <p className="font-mono">Built with React · Vite · Tailwind · Framer Motion</p>
         </div>
       </div>
     </footer>

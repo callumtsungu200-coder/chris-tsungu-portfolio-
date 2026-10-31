@@ -1,9 +1,15 @@
-node_modules/
-dist/
-*.tsbuildinfo
-
-# local env / editor
+node_modules
+dist
+dist-ssr
+*.local
 .DS_Store
-.vscode/
-.idea/
-*.log
+.netlify
+
+# Original photographs. The optimised versions live in public/images.
+source-photos/
+
+# School reports and other private source documents
+source-documents/
+
+# Local editor/agent config
+.claude/

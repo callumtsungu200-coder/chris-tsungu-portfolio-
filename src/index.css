@@ -4,48 +4,32 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
-    --selection: rgba(251, 210, 78, 0.35);
+    color-scheme: light;
+    --selection: rgba(47, 93, 58, 0.22);
   }
 
   html {
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
+    font-size: 16px;
   }
 
   body {
     background-color: theme('colors.ink.950');
     color: theme('colors.ink.100');
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'ss01';
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     overflow-x: hidden;
   }
 
-  ::selection {
-    background-color: var(--selection);
-    color: theme('colors.ink.950');
-  }
+  ::selection { background-color: var(--selection); color: theme('colors.ink.100'); }
 
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background: theme('colors.ink.950');
-  }
-  ::-webkit-scrollbar-thumb {
-    background: theme('colors.ink.700');
-    border-radius: 999px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: theme('colors.ink.600');
-  }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: theme('colors.ink.900'); }
+  ::-webkit-scrollbar-thumb { background: theme('colors.ink.600'); border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover { background: theme('colors.ink.500'); }
 
-  /* Reduce motion */
   @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       animation-duration: 0.001ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.001ms !important;
@@ -55,75 +39,76 @@
 
   h1, h2, h3, h4 {
     font-family: theme('fontFamily.display');
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.gold.400');
+    outline-offset: 2px;
   }
 }
 
 @layer components {
+  /* Soft card: sand surface, large radius, hairline border. Named .glass for backwards compatibility. */
   .glass {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow:
-      0 1px 0 0 rgba(255, 255, 255, 0.06) inset,
-      0 12px 40px -12px rgba(0, 0, 0, 0.6);
+    background: theme('colors.paper.50');
+    border: 1px solid theme('colors.line.DEFAULT');
+    box-shadow: 0 1px 2px rgba(31, 34, 25, 0.03);
   }
 
-  .gold-text {
-    background: linear-gradient(120deg, #fef3c7 0%, #fbd24e 35%, #eaa90b 60%, #fbd24e 80%, #fef3c7 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-  }
+  .gold-text, .gold-text-static { color: theme('colors.gold.400'); }
+  .ring-gold { box-shadow: 0 0 0 1px theme('colors.gold.400'); }
 
-  .gold-text-static {
-    background: linear-gradient(120deg, #fde58a 0%, #fbd24e 50%, #eaa90b 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-  }
+  .section-padding { @apply py-16 md:py-24; }
 
-  .ring-gold {
-    box-shadow:
-      0 0 0 1px rgba(251, 210, 78, 0.4),
-      0 8px 36px -8px rgba(251, 210, 78, 0.35);
-  }
-
-  .section-padding {
-    @apply py-24 md:py-32;
-  }
-
+  /* Small-caps pill label */
   .heading-eyebrow {
-    @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-gold-300/90;
+    @apply inline-flex items-center gap-2 rounded-full bg-ink-800 px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-ink-300;
   }
 
-  /* Animated noise/grain overlay */
-  .grain::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.04;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  .section-numeral { display: none; }
+  .rule { height: 1px; background: theme('colors.line.DEFAULT'); }
+
+  .link-draw {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   }
+  .link-draw:hover, .link-draw:focus-visible { background-size: 100% 1px; }
+
+  /* Card hover: gentle lift */
+  .lift { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s; }
+  .lift:hover { transform: translateY(-4px); box-shadow: 0 20px 50px -28px rgba(31, 34, 25, 0.35); border-color: theme('colors.ink.700'); }
+
+  .dropcap::first-letter { font-size: inherit; float: none; padding: 0; color: inherit; }
+  .grain::before { content: none; }
+
+  /* Grid of soft cards (was hairline cells) */
+  .cell-grid { display: grid; gap: 0.75rem; }
+  .cell-grid > * { background: theme('colors.paper.50'); border: 1px solid theme('colors.line.DEFAULT'); border-radius: 1.25rem; overflow: hidden; }
+}
+
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  header, footer, .print\:hidden { display: none !important; }
+  .cv-sheet { border: 0 !important; box-shadow: none !important; background: #fff !important; }
+  .cv-sheet a { color: inherit; text-decoration: none; }
+  @page { margin: 14mm; }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  .text-pretty {
-    text-wrap: pretty;
-  }
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+  /* Soft warm glow behind page headers */
   .bg-aurora {
     background:
-      radial-gradient(60% 50% at 20% 10%, rgba(251, 210, 78, 0.12), transparent 60%),
-      radial-gradient(40% 40% at 90% 20%, rgba(124, 58, 237, 0.08), transparent 60%),
-      radial-gradient(50% 40% at 50% 100%, rgba(34, 197, 94, 0.06), transparent 65%);
+      radial-gradient(55% 60% at 50% -10%, rgba(47, 93, 58, 0.14), transparent 70%),
+      radial-gradient(40% 40% at 85% 10%, rgba(184, 134, 59, 0.10), transparent 70%);
+  }
+  .mask-fade-x {
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   }
 }
